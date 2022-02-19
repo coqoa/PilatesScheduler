@@ -6,17 +6,17 @@ import {Ionicons} from "@expo/vector-icons"
 import {Asset} from 'expo-asset';
 import { NavigationContainer } from '@react-navigation/native';
 import Tabs from './navigation/Tabs';
-import Stack from './navigation/Stack';
 import Root from './navigation/Root';
+import { PSCalendar } from './screens/Calendar';
 
 const loadFonts = (fonts) => fonts.map(font => Font.loadAsync(font))
-const loadImages = (images) => images.map(image => {
-  if(typeof image === "string"){
-    return Image.prefetch(image)
-  }else {
-    return Asset.loadAsync(image)
-  }
-})
+// const loadImages = (images) => images.map(image => {
+//   if(typeof image === "string"){
+//     return Image.prefetch(image)
+//   }else {
+//     return Asset.loadAsync(image)
+//   }
+// })
 
 export default function App() {
   const [ready, setReady] = useState(false);
@@ -24,7 +24,7 @@ export default function App() {
   const startLoading = async () =>{
     const fonts = loadFonts([Ionicons.font])
     // const images = loadImages([require('./Local'),'url'])
-    await Promise.all(...fonts, ...images)
+    // await Promise.all(...fonts, ...images)
   }; 
   if(!ready){
     return (
@@ -37,6 +37,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Root />
+    {/* //   <Tabs /> */}
     </NavigationContainer>
+    // <PSCalendar />
   )
 }

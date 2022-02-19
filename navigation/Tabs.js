@@ -3,39 +3,44 @@ import {BottomTabView, createBottomTabNavigator} from "@react-navigation/bottom-
 import Home from "../screens/Home";
 import Search from "../screens/Search";
 import Management from "../screens/Management";
-import { useColorScheme } from "react-native"
 import {Ionicons} from "@expo/vector-icons"
+
 
 const Tab = createBottomTabNavigator();
 const Tabs = () => {
-    // const isDark = useColorScheme() === "dark" ;
     return (
         <Tab.Navigator screenOptions={{
-            // tabBarStyle:{ backgroundColor: isDark ? "black" : "white"},
-            // tabBarActiveTintColor: isDark ? "#feca57" : "#ff9f43",
-            // headerStyle:{ backgroundColor: isDark ? "black" : "white"},
-            // headerTitleStyle:{color: isDark ? "white" : "black"},
-            // headerBackTitleVisible:false,
+            tabBarLabelStyle:{
+                fontSize: 10,
+                fontWeight: "500",
+                marginBottom: 2
+            },
+            tabBarStyle:{
+                // backgroundColor:"#F9EBEB"
+            },
+            tabBarActiveTintColor:"#023CA0",
+            tabBarInactiveTintColor:"gray",
             headerShown:false
         }}>
             <Tab.Screen 
-            name="홈" 
-            component={Home}
+            name="Home" 
+            component={Home} 
             options={{
-                tabBarIcon:({focused, color, size}) => <Ionicons name={focused? "home" : "home-outline"} color={color} size={size} />
+                // headerShown: false,
+                tabBarIcon:({focused, color, size}) => <Ionicons name={"home"} color={color} size={size} />
             }} />
             <Tab.Screen 
-            name="검색" 
-            component={Search} 
+            name="Search" 
+            component={Search}
             options={{
                 tabBarIcon:({focused, color, size}) => <Ionicons name={"search"} color={color} size={size} />
-            }} />
+            }}/>
             <Tab.Screen 
-            name="관리" 
+            name="Management" 
             component={Management} 
             options={{
-                tabBarIcon:({focused, color, size}) => <Ionicons name={"list"} color={color} size={size} />
-            }} />
+                tabBarIcon:({focused, color, size}) => <Ionicons name={"menu-sharp"} color={color} size={size} />
+            }}/>
         </Tab.Navigator>
     )
 }

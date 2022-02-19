@@ -1,47 +1,64 @@
-import react from "react";
-import styled from "styled-components/native"
-import {createNativeStackNavigator} from "@react-navigation/native-stack"
-
-import {Text, View, TouchableOpacity} from "react-native"
+import react, { useState } from "react";
+import {createNativeStackNavigator} from "@react-navigation/native-stack" 
+import {Text, View, TouchableOpacity, Modal, Alert} from "react-native"
+import styled from "styled-components/native";
 
 const NativeStack = createNativeStackNavigator();
 
-const Container = styled.View`
-    flex-direction: row;
+//----------------------------------------------------------------------------------------------------------------
+
+const Views = styled.View`
     flex: 1;
-    margin-top: 70px;
+    background-color: white;
+`
+const TopNav = styled(Views)`
+    margin-top: 20px;
+    align-items: center;
     justify-content: center;
 `
-const MemberType = styled.View`
-    flex: 1;
-    align-items: center;
-`
-const SelectCenter = styled.TouchableOpacity`
-    flex: 1;
-    align-items: center;
-    /* color: red; */
-`
-const MySchedule = styled.TouchableOpacity`
-    flex: 1;
-    align-items: center;
+const TopNavTitle = styled.Text`
+    font-size: 18px;
+    font-weight: 800;
+    color: #2E4772;
 `
 
-const TopNav = () => (
-    <Container>
-        <MemberType>
-            <Text>관리자입니다</Text>
-        </MemberType>
-        <SelectCenter>
-            <Text>Center</Text>
-        </SelectCenter>
-        <MySchedule>
-            <Text>MySchedule</Text>
-        </MySchedule>
-    </Container>
+const Calender = styled.TouchableOpacity`
+	flex:13;
+    width: 100%;
+	justify-content: center;
+	align-items: center;
+    background-color: white;
+`
+const CalenderText = styled.Text`
+
+`
+const Modal1 = styled.Modal`
+    flex: 1;
+    
+`
+//----------------------------------------------------------------------------------------------------------------
+const HomeScreen = ({navigation : {navigate}}) => (
+    <Views>
+        <TopNav>  
+            <TopNavTitle>{"세컨무브필라테스"}</TopNavTitle>
+        </TopNav>
+        
+        <Calender onPress={() => navigate("Cal")}>
+            <CalenderText>달력</CalenderText>
+        </Calender>
+    </Views> 
 )
+
+const Cal = () => {
+    return null
+}
+
 const Home = () => (
+
     <NativeStack.Navigator screenOptions={{headerShown:false}} >
-        <NativeStack.Screen name="TopNav" component={TopNav} />
+        <NativeStack.Screen name="HomeScreen" component={HomeScreen} />
+        <NativeStack.Screen name="Cal" component={Cal}/>
     </NativeStack.Navigator>
 )
+
 export default Home;
