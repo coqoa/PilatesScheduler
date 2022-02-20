@@ -5,6 +5,7 @@ import colors from '../Components/color';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import {Ionicons} from "@expo/vector-icons"
 import DrawerNavigator from "../navigation/DrawerNavigator";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 function addStringZero(time){
     if(parseInt(time)<10)
@@ -40,7 +41,7 @@ const TopNavUpper = styled.View`
     const Member = styled.View`
         flex: 1;
         flex-direction: column;
-        margin: 0px 10px;
+        margin: -10px 10px;
         /* width: 100%; */
         /* background-color: tomato; */
     `
@@ -53,8 +54,8 @@ const TopNavUpper = styled.View`
         `
         const BranchBtn = styled.TouchableOpacity``
         const BranchText = styled.Text`
-            font-size: 12;
-            font-weight: 800;
+            font-size: 13;
+            font-weight: 500;
             color: ${colors.NAVY};
         `
         const MemberType = styled.View`
@@ -69,21 +70,21 @@ const TopNavUpper = styled.View`
             color: ${colors.DARKGRAY};
         `
     const YYYYMM = styled.View`
-        margin-right: 20px;
+        margin-right: 25px;
         flex: 1;
         align-items: center;
+        justify-content: center;
     `
     const YYYY = styled.Text`
     flex: 1;
-        font-size: 13;
-        font-weight: 400;
+        font-size: 20;
+        font-weight: 300;
         color: ${colors.NAVY};
-        margin-top: 10px;
-        margin-bottom: -15px;
+        /* margin-top: 4px; */
     `
     const MM = styled.Text`
     flex: 2;
-        font-size: 48;
+        font-size: 40;
         font-weight: 700;
         color: ${colors.NAVY};
     `
@@ -155,7 +156,6 @@ const SchedulerArea = styled.ScrollView`
     border-top-right-radius: 25;
     background-color: white;
 `
-
 const Home = ({navigation}) => {
 
     return(
@@ -165,10 +165,10 @@ const Home = ({navigation}) => {
                 <Member>
                     <Branch>
                         <BranchBtn>
-                            <BranchText>더무브먼트￬</BranchText>
+                            <BranchText>Balance Body</BranchText>
                         </BranchBtn>
                     </Branch>
-                    <MemberType><MemberTypeText>멤버타입</MemberTypeText></MemberType>
+                    <MemberType><MemberTypeText>최병민 회원님</MemberTypeText></MemberType>
                 </Member>
                 <YYYYMM>
                     <YYYY>{getFullYear}</YYYY>
@@ -184,7 +184,7 @@ const Home = ({navigation}) => {
             
             <TopNavLower>
                 <SearchClass>
-                    <SearchBar placeholder="🔍">
+                    <SearchBar placeholder="Search">
                     </SearchBar>
                 </SearchClass>
                 <CreateClass>
@@ -196,7 +196,7 @@ const Home = ({navigation}) => {
         </TopNavArea>
         <SchedulerArea contentContainerStyle={{alignItems:"center", flex:1}}>
             <View>
-                <Text style={{flex:1}}> 가나다</Text>
+                <Text style={{flex:1}}></Text>
             </View>
         </SchedulerArea>
     </Shell>
