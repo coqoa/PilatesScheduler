@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Menu from "../screens/Menu";
 import { Text, TouchableOpacity, View } from "react-native";
 import Home from "../screens/Home";
+import Menu from "../screens/Menu";
 import {Ionicons} from "@expo/vector-icons"
 import colors from "../Components/color";
 

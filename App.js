@@ -7,6 +7,8 @@ import {Asset} from 'expo-asset';
 import {Ionicons} from "@expo/vector-icons"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import DrawerNavigator from './app/navigation/DrawerNavigator';
+import Navigator from './app/navigation/navigator';
+
 
 
 const loadFonts = (fonts) => fonts.map(font => Font.loadAsync(font))
@@ -37,7 +39,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>
-        <DrawerNavigator />
+        {/* <DrawerNavigator /> */}
+        <Navigator />
       </SafeAreaView>
     </NavigationContainer>
   )

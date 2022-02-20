@@ -1,17 +1,20 @@
-import React from "react";
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from "../screens/Home";
-import Menu from "../screens/Menu";
+import Login from '../screens/Login';
+import Signup from '../screens/Signup';
+
+
 
 const Tabs = createNativeStackNavigator();
 
 const Navigator = () => {
-    return(
+    return (
     <Tabs.Navigator screenOptions={{headerShown: false}}>
-        <Tabs.Screen name="Home" component={Home} />
-        <Tabs.Screen name="Menu" component={Menu} />
+        {/* <Tabs.Screen name="DrawerNavigator" component={DrawerNavigator} /> */}
+        <Tabs.Screen name="Login" component={Login} />
+        <Tabs.Screen name="Signup" component={Signup} />
     </Tabs.Navigator>
-    )
-}
+    );
+};
 
-// export default Navigator;
+export default Navigator;
