@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { Text } from 'react-native';
+import { Text, SafeAreaView } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Font from "expo-font";
 import {Asset} from 'expo-asset';
 import {Ionicons} from "@expo/vector-icons"
-import { SafeAreaView } from 'react-native-safe-area-context';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 import DrawerNavigator from './app/navigation/DrawerNavigator';
 import Navigator from './app/navigation/navigator';
 

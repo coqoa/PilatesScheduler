@@ -6,6 +6,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import {Ionicons} from "@expo/vector-icons"
 import DrawerNavigator from "../navigation/DrawerNavigator";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 function addStringZero(time){
     if(parseInt(time)<10)
@@ -24,181 +25,116 @@ const Shell = styled.View`
     background-color: ${colors.bgColor};
 `
 const TopNavArea = styled.View`
-    flex: 1;
-    /* align-items: center; */
-    /* justify-content: flex-end; */
-    width: 100%;
+    height: 12%;
+    /* width: 100%; */
     `
-const TopNavUpper = styled.View`
-    flex: 2; 
-    /* width: 100%;
-    background-color: orange; */
-    flex-direction: row;
-    /* margin-top: 20px; */
-    margin-bottom: 5px;
-    /* border: 1px solid gray; */
+const YYYYMM = styled.View`
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    /* background-color: red; */
 `
-    const Member = styled.View`
-        flex: 1;
-        flex-direction: column;
-        margin: -10px 10px;
-        /* width: 100%; */
-        /* background-color: tomato; */
-    `
-        const Branch = styled.View`
-        flex: 1;
-        /* width: 100%;
-        background-color: gray; */
-        align-items: flex-start;
-        justify-content: center;
-        `
-        const BranchBtn = styled.TouchableOpacity``
-        const BranchText = styled.Text`
-            font-size: 13;
-            font-weight: 500;
-            color: ${colors.NAVY};
-        `
-        const MemberType = styled.View`
-        flex: 1;
-        /* width: 100%;
-        background-color: yellow; */
-        align-items: flex-start;
-        justify-content: flex-start;
-        `
-        const MemberTypeText = styled.Text`
-            font-size: 10;
-            color: ${colors.DARKGRAY};
-        `
-    const YYYYMM = styled.View`
-        margin-right: 25px;
-        flex: 1;
-        align-items: center;
-        justify-content: center;
-    `
-    const YYYY = styled.Text`
-    flex: 1;
-        font-size: 20;
-        font-weight: 300;
-        color: ${colors.NAVY};
-        /* margin-top: 4px; */
-    `
-    const MM = styled.Text`
-    flex: 2;
-        font-size: 40;
-        font-weight: 700;
-        color: ${colors.NAVY};
-    `
-    // const DD = styled.Text`
-    // flex: 1;
-    //     font-size: 13;
-    //     font-weight: 400;
-    //     color: ${colors.NAVY};
-    // `
-    const Option = styled.View`
-        flex: 1;
-        align-items: flex-end;
-        `
-    const OptionBtn = styled.TouchableOpacity`
-        margin: 10px;
-    `
-    const OptionText = styled.Text``
+const YYYY = styled.Text`
+    font-size: 12px;
+    font-weight: 400;
+    color: ${colors.NAVY};
+`
+const MM = styled.Text`
 
-const TopNavLower = styled.View`
+    font-size: 40px;
+    font-weight: 800;
+    color: ${colors.NAVY};
+    `
+const Option = styled.View`
+    position: absolute;
+    right: 0px;
+    `
+const OptionBtn = styled.TouchableOpacity`
+    margin: 5px;
+`
+const OptionText = styled.Text`
+    color: ${colors.DARKGRAY};
+`
+
+
+
+
+const SchedulerArea = styled.View`
     flex: 1;
-    flex-direction: row;
-    padding: 0px 0px;
-    /* width: 100%;
-    background-color: red; */
-`
-const SearchClass = styled.View`
-    flex: 7;
-    /* width: 100%;
-    background-color: lightblue; */
+    width: 100%;
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: white;
     align-items: center;
-    justify-content: center;
+
 `
-const SearchBar = styled.TextInput`
-width: 95%;
-height: 35px;
-background-color: white;
-padding: 0px 10px;
-border-radius: 11;
-border: 1px solid lightgray;
-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+const BranchShell = styled.View``
+const BranchBtn = styled.TouchableOpacity`
+margin: 10px;
 `
+const BranchText = styled.Text`
+    font-size: 16px;
+    font-weight: 600;
+    color: ${colors.NAVY};
+`
+const CalendarShell = styled.ScrollView`
+    border: 1px solid ${colors.REALLIGHTGRAY};
+    width: 100%;
+`
+
 const CreateClass = styled.View`
-    flex: 1;
-    /* width: 100%;
-    background-color: beige; */
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    right: 10px;
+    bottom: 30px;
+    /* background-color: red; */
 `
 const CreateBtn = styled.TouchableOpacity`
-    width: 30px;
-    height: 30px;
-    background-color: ${colors.TOMATO};
-    border-radius: 7;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 1px 1px 1px ${colors.TOMATO};
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50px;
 `
 const CreateBtnText = styled.Text`
     color: white;
-    font-size: 20;
-    font-weight:600;
 `
 
-const SchedulerArea = styled.ScrollView`
-    flex: 5;
-    width: 100%;
-    margin-top: 10px;
-    border-top-left-radius: 25;
-    border-top-right-radius: 25;
-    background-color: white;
-`
 const Home = ({navigation}) => {
 
     return(
     <Shell>
         <TopNavArea>
-            <TopNavUpper>
-                <Member>
-                    <Branch>
-                        <BranchBtn>
-                            <BranchText>Balance Body</BranchText>
-                        </BranchBtn>
-                    </Branch>
-                    <MemberType><MemberTypeText>최병민 회원님</MemberTypeText></MemberType>
-                </Member>
-                <YYYYMM>
-                    <YYYY>{getFullYear}</YYYY>
-                    <MM>{getMonth}</MM>
-                </YYYYMM>
-                <Option>
-                    <OptionBtn  onPress={() => navigation.openDrawer()}>
-                    {/* <OptionBtn> */}
-                        <OptionText><Ionicons name={"menu-sharp"} size={20} /></OptionText>
-                    </OptionBtn>
-                </Option>
-            </TopNavUpper>
-            
-            <TopNavLower>
-                <SearchClass>
-                    <SearchBar placeholder="Search">
-                    </SearchBar>
-                </SearchClass>
+            <YYYYMM>
+                <YYYY>{getFullYear}</YYYY>
+                <MM>{getMonth}</MM>
+            </YYYYMM>
+            <Option>
+                <OptionBtn  onPress={() => navigation.openDrawer()}>
+                {/* <OptionBtn> */}
+                    <OptionText><Ionicons name={"menu-sharp"} size={20} /></OptionText>
+                </OptionBtn>
+            </Option>
+        </TopNavArea>
+        <SchedulerArea>
+            <BranchShell>
+                <BranchBtn>
+                    <BranchText>Balance Body</BranchText>
+                </BranchBtn>
+            </BranchShell>
+
+            <CalendarShell>
+                {/* 캘린더공간 */}
+                {/* left:날짜:View */}
+                {/* right: 시간:scrollview:horizontal */}
+            </CalendarShell>
                 <CreateClass>
                     <CreateBtn>
-                        <CreateBtnText>+</CreateBtnText>
+                        <CreateBtnText><Ionicons name={"ios-add-circle"} size={60} color={`${colors.TOMATO}`} /></CreateBtnText>
                     </CreateBtn>
                 </CreateClass>
-            </TopNavLower>
-        </TopNavArea>
-        <SchedulerArea contentContainerStyle={{alignItems:"center", flex:1}}>
-            <View>
-                <Text style={{flex:1}}></Text>
-            </View>
+
         </SchedulerArea>
+        
     </Shell>
     )
         

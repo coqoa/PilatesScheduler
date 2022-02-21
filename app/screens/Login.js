@@ -1,81 +1,135 @@
 import React,{useState, useEffect} from "react";
 import styled from "styled-components/native";
-import { View, Text, } from "react-native";
 import colors from '../Components/color';
-import { TouchableOpacity } from "react-native-gesture-handler";
 import {Ionicons} from "@expo/vector-icons"
 
-const Shell = styled.View``
+const Shell = styled.View`
+flex: 1;
+align-items: center;
+justify-content: center;
+`
 const LoginBg = styled.ImageBackground`
     flex: 1;
     width: 100%;
     height: 100%;
 `
-const Title = styled.Text`
-    flex: 5;
-    width: 100%;
-    border: 1px solid gray;
+const PaddingContainer = styled.View`
+    flex: 1;
+    padding: 15px;
+`
+const TitleContainer = styled.View`
+    flex: 4;
+    /* border: 1px solid gray;; */
+    align-items: center;
+    justify-content: center;
+`
+const Title1 = styled.Text`
+    font-size: 45px;
+    font-weight: 800;
+    color: ${colors.PINK};
+/* border: 1px solid gray; */
+`
+const Title2 = styled(Title1)`
+    margin-top: 10%;
 `
 
 const IdArea = styled.View`
     flex: 1;
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    align-items: center;
+    justify-content: center;
 `
-const IdLabel = styled.Text``
-const IdInput = styled.TextInput``
+const IdInput = styled.TextInput`
+    background-color: white;
+    width: 70%;
+    height: 60%;
+    border: 1px solid ${colors.REALLIGHTGRAY};
+    border-radius: 7px;
+    padding: 0px 10px;
+    font-size: 16px;
+`
 
 const PwArea = styled.View`
     flex: 1;
     width: 100%;
-    border: 1px solid white;
+    /* border: 1px solid white; */
+    align-items: center;
+    justify-content: center;
 `
-const PwLabel = styled.Text``
-const PwInput = styled.TextInput``
+const PwInput = styled(IdInput)``
 
 const SubmitArea = styled.View`
     flex: 1;
     width: 100%;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    align-items: center;
+    justify-content: center;
 `
-const SubmitBtn = styled.TouchableOpacity``
-const SubmitBtnText = styled.Text``
+const SubmitBtn = styled.TouchableOpacity`
+    background-color: ${colors.PINK};
+    width: 50%;
+    height: 50%;
+    border-radius: 8px;
+    padding: 0px 10px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 7px 10px rgba(255, 165, 165, 0.9);
+    margin-top: 10%;
+    `
+const SubmitBtnText = styled.Text`
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+`
 
 const SignupArea = styled.View`
     flex: 1;
     width: 100%;
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
+    align-items: center;
+    justify-content: center;
 `
-const SignupBtn = styled.TouchableOpacity``
-const SignupBtnText = styled.Text``
+const SignupBtn = styled.TouchableOpacity`
+
+`
+const SignupBtnText = styled.Text`
+    color: ${colors.GRAY};
+    font-size: 14px;
+`
 
 
-const Login = () => {
+const Login = ({navigation}) => {
 
     return (
-    <Shell style={{flex:1}}>
+    <Shell>
         <LoginBg source={require("../assets/images/loginBG.png")} resizeMode="stretch">
-        <Title>
-            타이틀
-        </Title>
-        <IdArea>
-            <IdLabel>ID라벨</IdLabel>
-            <IdInput>ID인풋</IdInput>
-        </IdArea>
-        <PwArea>
-            <PwLabel>PW라벨</PwLabel>
-            <PwInput>PW인풋</PwInput>
-        </PwArea>
-        <SubmitArea>
-            <SubmitBtn>
-                <SubmitBtnText>섭밋버튼텍스트</SubmitBtnText>
-            </SubmitBtn>
-        </SubmitArea>
-        <SignupArea>
-            <SignupBtn>
-                <SignupBtnText>사인업버튼텍스트</SignupBtnText>
-            </SignupBtn>
-        </SignupArea>
+        <PaddingContainer >
+            <TitleContainer>
+                <Title1>
+                    Pilates
+                </Title1>
+                <Title2>
+                    Scheduler
+                </Title2>
+            </TitleContainer>
+            <IdArea>
+                <IdInput placeholder="ID"></IdInput>
+            </IdArea>
+            <PwArea>
+                <PwInput placeholder="Password"></PwInput>
+            </PwArea>
+            <SubmitArea>
+                <SubmitBtn onPress={()=>{navigation.navigate("DrawerNavigator")}}>
+                    <SubmitBtnText>Continue</SubmitBtnText>
+                </SubmitBtn>
+            </SubmitArea>
+            <SignupArea>
+                <SignupBtn>
+                    <SignupBtnText onPress={() => {navigation.navigate("Signup")}}>Signup</SignupBtnText>
+                </SignupBtn>
+            </SignupArea>
+        </PaddingContainer>
         </LoginBg>
     </Shell>
     );
