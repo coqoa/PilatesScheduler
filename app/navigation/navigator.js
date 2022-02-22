@@ -11,6 +11,7 @@ const Tabs = createNativeStackNavigator();
 const Navigator = () => {
     return (
     <Tabs.Navigator screenOptions={{headerShown: false}}>
+    {/* <Tabs.Navigator> */}
         {/* <Tabs.Screen name="DrawerNavigator" component={DrawerNavigator} /> */}
         <Tabs.Screen name="Login" component={Login} />
         <Tabs.Screen name="Signup" component={Signup} />
