@@ -7,7 +7,6 @@ import {Asset} from 'expo-asset';
 import {Ionicons} from "@expo/vector-icons"
 import DrawerNavigator from './app/navigation/DrawerNavigator';
 import Navigator from './app/navigation/navigator';
-import Templates from './app/screens/Template';
 
 
 
@@ -39,8 +38,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>
-        {/* <Navigator /> */}
-        <Templates />
+        <Navigator />
       </SafeAreaView>
     </NavigationContainer>
   )

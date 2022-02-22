@@ -54,11 +54,10 @@ const TemplatesListContainer = styled.ScrollView`
     padding: 5%;
 `
 const TempalateShell = styled.TouchableOpacity`
-    height: 50px;
+    height: 60px;
     border-radius: 10px;
     align-items: center;
     justify-content: center;
-    padding-left: 15px;
     border: 1px solid ${colors.REALLIGHTGRAY};
 `
 const Line1 = styled.View``
