@@ -8,7 +8,7 @@ import {Ionicons} from "@expo/vector-icons"
 // import { SafeAreaView } from 'react-native-safe-area-context';
 import DrawerNavigator from './app/navigation/DrawerNavigator';
 import Navigator from './app/navigation/navigator';
-import Lessons from './app/screens/Lessons';
+import Students from './app/screens/Students';
 
 
 
@@ -41,7 +41,7 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>
         <Navigator />
-        {/* <Lessons /> */}
+        {/* <Students /> */}
       </SafeAreaView>
     </NavigationContainer>
   )

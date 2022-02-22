@@ -51,6 +51,7 @@ padding-left: 10px;
 border: 1px solid ${colors.REALLIGHTGRAY};
 `
 
+// ------------------------------------------------------------------------------------------------------------------------
 
 const LessonListContainer = styled.ScrollView`
     flex: 1;
@@ -58,7 +59,7 @@ const LessonListContainer = styled.ScrollView`
 `
 const LessonShell = styled.TouchableOpacity`
     flex-direction: row;
-    height: 50px;
+    height: 60px;
     border-radius: 7px;
     padding: 0px 5px;
     margin-bottom: 10px;
@@ -72,21 +73,20 @@ const LessonInfo = styled.View`
     margin-right: 10px;
 `
 const Date = styled.Text`
-    font-size: 10px;
-    /* margin: 1px; */
+    font-size: 12px;
     opacity: 0.5;
 `
 const Time = styled(Date)``
 const RoomNameText = styled(Date)``
 
 const LessonName = styled.View`
-    flex: 3;
+    flex: 2;
     justify-content: center;
 `
 const LessonNameText = styled.Text`
-    font-size: 14px;
+    font-size: 16px;
 `
-// ---------- LessonList Component ----------
+// ---------------------------------------- LessonList Component --------------------------------------------------
 function LessonList({date, time, roomName,lessonName,}) {
     return(
     <LessonShell>

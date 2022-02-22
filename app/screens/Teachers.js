@@ -50,7 +50,7 @@ border-radius:7px;
 padding-left: 10px;
 border: 1px solid ${colors.REALLIGHTGRAY};
 `
-
+// -------------------------------------------------------------------------------------------------------------------------
 
 const TeacherListContainer = styled.ScrollView`
     flex: 1;
@@ -78,17 +78,9 @@ const NameText = styled.Text`
 const IDText = styled(NameText)``
 const JoinDateText = styled(NameText)``
 
-// ---------- TeacherList Component ----------
+// ---------------------------------------- TeacherList Component --------------------------------------------------
 function TeacherList({name, id, date}) {
     return(
-    // <LessonShell>
-    //     <LessonInfo>
-    //         <Date> {date} </Date>
-    //         <Time> {time} </Time>
-    //         <RoomNameText>{roomName}</RoomNameText>
-    //     </LessonInfo>
-    //     <LessonName><LessonNameText>{lessonName}</LessonNameText></LessonName>
-    // </LessonShell>
     <TeacherShell>
         <TeacherName>
             <NameText>{name}</NameText>
@@ -126,6 +118,7 @@ const Teachers = ({navigation}) => {
         <TeacherListContainer>
             <TeacherList name={"김유진"} id={"rehiu"} date={"22.02.22"} />
         </TeacherListContainer>
+        {/* 강사생성버튼(모달창) */}
     </Shell>
     </View>
 
