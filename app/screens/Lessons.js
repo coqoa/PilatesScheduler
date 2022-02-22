@@ -63,7 +63,6 @@ const LessonShell = styled.TouchableOpacity`
     border-radius: 7px;
     padding: 0px 5px;
     margin-bottom: 10px;
-    
     border: 1px solid ${colors.REALLIGHTGRAY};
 `
 const LessonInfo = styled.View`
@@ -73,8 +72,9 @@ const LessonInfo = styled.View`
     margin-right: 10px;
 `
 const Date = styled.Text`
-    font-size: 12px;
+    font-size: 13px;
     opacity: 0.5;
+    margin: 1px;
 `
 const Time = styled(Date)``
 const RoomNameText = styled(Date)``

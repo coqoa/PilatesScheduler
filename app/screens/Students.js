@@ -50,7 +50,7 @@ const StudentListContainer = styled.ScrollView`
 `
 const StudentShell = styled.TouchableOpacity`
     flex-direction: column;
-    height: 140px;
+    height: 160px;
     border-radius: 7px;
     margin-bottom: 10px;
     padding-left: 15px;
@@ -61,26 +61,30 @@ const StudentShell = styled.TouchableOpacity`
 const Line1 = styled.View`
     flex-direction: row;
     margin-top: 5px;
+    align-items: center;
 `
 const Line2 = styled(Line1)``
 const Line3 = styled(Line1)``
 const Line4 = styled(Line1)``
 const Line5 = styled(Line1)``
+const Line6 = styled(Line1)``
 
 const Line1Text = styled.Text`
     color: ${colors.GRAY};
+    /* width: 0%; */
     `
 const Line2Text = styled(Line1Text)``
 const Line3Text = styled(Line1Text)``
 const Line4Text = styled(Line1Text)``
 const Line5Text = styled(Line1Text)``
+const Line6Text = styled(Line1Text)``
 
 const Type = styled.Text`
     margin-right: 5px;
-    font-size: 15px;
-    color: ${colors.REALDARKGRAY};
-
-`
+    font-size: 12px;
+    /* color: ${colors.REALDARKGRAY}; */
+    
+    `
 const Teacher = styled(Type)``
 const StudentName = styled(Type)``
 const StudentID = styled(Type)``
@@ -90,41 +94,46 @@ const Remaining = styled(Type)``
 const TotalCount = styled(Type)``
 
 
-const TypeText = styled.Text``
-const TeacherText = styled(Type)``
-const StudentNameText = styled(Type)``
-const StudentIDText = styled(Type)``
-const StartDateText = styled(Type)``
-const EndDateText = styled(Type)``
-const RemainingText = styled(Type)``
-const TotalCountText = styled(Type)``
+const TypeText = styled.Text`
+    font-size: 15px;
+`
+const TeacherText = styled(TypeText)``
+const StudentNameText = styled(TypeText)``
+const StudentIDText = styled(TypeText)``
+const StartDateText = styled(TypeText)``
+const EndDateText = styled(TypeText)``
+const RemainingText = styled(TypeText)``
+const TotalCountText = styled(TypeText)``
 // ---------------------------------------- StudentList Component --------------------------------------------------
 function StudentList({name,id,type,teacher,startDate,endDate,totalCount,remaining}) {
     return(
     <StudentShell>
         <Line1>
-            <Line1Text>이름, ID : </Line1Text>
-            <StudentName><StudentNameText>{name} ,</StudentNameText></StudentName>
-            <StudentID><StudentIDText>{id}</StudentIDText></StudentID>
+            <Line1Text>이름(ID) : </Line1Text>
+            <StudentName><StudentNameText>{name}</StudentNameText></StudentName>
+            <StudentID><StudentIDText>({id})</StudentIDText></StudentID>
         </Line1>
         <Line2>
-            <Line2Text>타입, (담당강사) : </Line2Text>
-            <Type><TypeText>{type} ,</TypeText></Type>
-            <Teacher><TeacherText>{teacher}</TeacherText></Teacher>
+            <Line2Text>회원타입 : </Line2Text>
+            <Type><TypeText>{type}</TypeText></Type>
         </Line2>
         <Line3>
-            <Line3Text>시작일자 : </Line3Text>
-            <StartDate><StartDateText>{startDate}</StartDateText></StartDate>
+            <Line3Text>담당강사 : </Line3Text>
+            <Teacher><TeacherText>{teacher}</TeacherText></Teacher>
         </Line3>
         <Line4>
-            <Line4Text>종료일자 : </Line4Text>
-            <EndDate><EndDate>{endDate}</EndDate></EndDate>
+            <Line4Text>시작일자 : </Line4Text>
+            <StartDate><StartDateText>{startDate}</StartDateText></StartDate>
         </Line4>
         <Line5>
-            <Line5Text>잔여횟수 / 총 횟수 : </Line5Text>
+            <Line5Text>종료일자 : </Line5Text>
+            <EndDate><EndDateText>{endDate}</EndDateText></EndDate>
+        </Line5>
+        <Line6>
+            <Line6Text>잔여횟수 / 총 횟수 : </Line6Text>
             <Remaining><RemainingText>{remaining} /</RemainingText></Remaining>
             <TotalCount><TotalCountText>{totalCount}</TotalCountText></TotalCount>
-        </Line5>
+        </Line6>
     </StudentShell>
     )
 }

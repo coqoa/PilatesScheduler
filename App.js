@@ -5,10 +5,9 @@ import AppLoading from 'expo-app-loading';
 import * as Font from "expo-font";
 import {Asset} from 'expo-asset';
 import {Ionicons} from "@expo/vector-icons"
-// import { SafeAreaView } from 'react-native-safe-area-context';
 import DrawerNavigator from './app/navigation/DrawerNavigator';
 import Navigator from './app/navigation/navigator';
-import Students from './app/screens/Students';
+import Templates from './app/screens/Template';
 
 
 
@@ -40,8 +39,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>
-        <Navigator />
-        {/* <Students /> */}
+        {/* <Navigator /> */}
+        <Templates />
       </SafeAreaView>
     </NavigationContainer>
   )
