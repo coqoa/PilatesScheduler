@@ -7,7 +7,7 @@ import {Asset} from 'expo-asset';
 import {Ionicons} from "@expo/vector-icons"
 import DrawerNavigator from './app/navigation/DrawerNavigator';
 import Navigator from './app/navigation/navigator';
-
+import Lessons from './app/screens/Lessons';
 
 
 const loadFonts = (fonts) => fonts.map(font => Font.loadAsync(font))
@@ -38,7 +38,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>
-        <Navigator />
+        {/* <Navigator /> */}
+        <Lessons />
       </SafeAreaView>
     </NavigationContainer>
   )

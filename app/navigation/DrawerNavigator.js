@@ -20,7 +20,6 @@ const DrawerNavigator = () => {
     // nonMember , manager , teacher , student
     
     const [memberType, setMemberType] = useState("teacher");
-    // console.log(memberType)
     function memberCheck(){
         if(memberType === "nonMember"){
             return(
