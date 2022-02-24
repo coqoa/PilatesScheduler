@@ -63,15 +63,34 @@ const ModalContents = styled.View`
     border: 1px solid black;
     
 `
-const Line1 = styled.View``
+const Line1 = styled.View`
+    width: 100px;
+    height: 30px;
+    flex-direction: row;
+    margin:5px 15px;
+    align-items: center;
+`
 const Line2 = styled(Line1)``
 const Line3 = styled(Line1)``
 const Line4 = styled(Line1)``
+const Line5 = styled(Line1)``
+const Line6 = styled(Line1)``
+const Line7 = styled(Line1)``
+const Line8 = styled(Line1)``
+const Line9 = styled(Line1)``
 
-const Line1Text = styled.Text``
+const Line1Text = styled.Text`
+    font-size: 16px;
+    color: ${colors.DARKGRAY};
+`
 const Line2Text = styled(Line1Text)``
 const Line3Text = styled(Line1Text)``
 const Line4Text = styled(Line1Text)``
+const Line5Text = styled(Line1Text)``
+const Line6Text = styled(Line1Text)``
+const Line7Text = styled(Line1Text)``
+const Line8Text = styled(Line1Text)``
+const Line9Text = styled(Line1Text)``
 
 const LessonModalComponent = () => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -93,10 +112,34 @@ const LessonModalComponent = () => {
                     <ModalTitleText>타이틀</ModalTitleText>
                 </ModalTitle>
                 <ModalContents>
-                    <Line1><Line1Text>LessonModalComponent</Line1Text></Line1>
-                    <Line2><Line2Text>모달내용작성2</Line2Text></Line2>
-                    <Line3><Line3Text>모달내용작성3</Line3Text></Line3>
-                    <Line4><Line4Text>모달내용작성4</Line4Text></Line4>
+                    <Line1>
+                        <Line1Text>Type</Line1Text>
+                        {/* 작업중 */}
+                    </Line1>
+                    <Line2>
+                        <Line2Text>담당 강사</Line2Text>
+                    </Line2>
+                    <Line3>
+                        <Line3Text>수업 이름</Line3Text>
+                    </Line3>
+                    <Line4>
+                        <Line4Text>수업 내용</Line4Text>
+                    </Line4>
+                    <Line5>
+                        <Line5Text>수업 날짜</Line5Text>
+                    </Line5>
+                    <Line6>
+                        <Line6Text>수업 시간</Line6Text>
+                    </Line6>
+                    <Line7>
+                        <Line7Text>예약 마감</Line7Text>
+                    </Line7>
+                    <Line8>
+                        <Line8Text>참여 인원</Line8Text>
+                    </Line8>
+                    <Line9>
+                        <Line9Text>클래스 룸</Line9Text>
+                    </Line9>
                 </ModalContents>
                 <ModalSubmitBtnShell>
                     <ModalSubmitBtn>

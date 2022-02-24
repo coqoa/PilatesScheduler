@@ -38,8 +38,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>
-        {/* <Navigator /> */}
-        <Lessons />
+        <Navigator />
+        {/* <Lessons /> */}
       </SafeAreaView>
     </NavigationContainer>
   )

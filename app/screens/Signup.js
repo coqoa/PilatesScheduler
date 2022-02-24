@@ -2,7 +2,9 @@ import React,{useState, useEffect} from "react";
 import styled from "styled-components/native";
 import colors from '../Components/color';
 import {Ionicons} from "@expo/vector-icons"
-import { View } from "react-native";
+import { Text, View } from "react-native";
+import { color } from 'react-native-reanimated';
+import Modal from "react-native-modal";
 
 const Shell = styled.View`
 flex: 1;
@@ -64,7 +66,16 @@ const NameInput = styled(IdInput)``
 const NumberInput = styled(IdInput)``
 const EmailInput = styled(IdInput)``
 
-const SelectType = styled(IdInput)``
+const SelectType = styled.Pressable`
+    background-color: white;
+    width: 70%;
+    height: 60%;
+    border: 1px solid ${colors.REALLIGHTGRAY};
+    border-radius: 7px;
+    padding: 0px 10px;
+    font-size: 14px;
+    justify-content: center;
+`
 
 
 const SubmitBtn = styled.TouchableOpacity`
@@ -83,16 +94,61 @@ const SubmitBtnText = styled.Text`
     font-size: 16px;
     font-weight: 500;
 `
-const SignupBtn = styled.TouchableOpacity`
-
-`
+const SignupBtn = styled.TouchableOpacity``
 const SignupBtnText = styled.Text`
     color: ${colors.GRAY};
     font-size: 14px;
 `
+// ----------------모달버튼
+// const DropDown = () =>{
+//     const [typeSelect, setTypeSelect] = useState("")
+//     return(
+//         null
+//     )
+// }
+// export default DropDown;
+const TypeModalContainer = styled.View`
+    position: absolute;
+    flex: 1;
+    width: 150px;
+    height: 130px;
+    background-color: ${colors.LIGHTGRAY};
+    border-radius: 10px;
+`
+const TypeModalShell = styled.View`
+    flex: 1;
+    /* background-color: green; */
+    margin:10px;
+    align-items: center;
+    justify-content: center;
+    `
+const Type = styled.Pressable`
+    flex:1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin:2px;
+    border-radius: 6px;
+    background-color: ${colors.GRAY};
+`
+const TypeText = styled.Text`
+    font-size: 14px;
+    font-weight: 500;
+`
+const SelectTypeText = styled.Text``
+
 
 
 const Signup = ({navigation}) => {
+
+    const [typeModalToggle, setTypeModalToggle] = useState(false);
+    const [typeResult, setTypeResult] = useState("Type");
+
+    const TypeModalPress = (e) =>{
+        setTypeResult("관리자");
+        setTypeModalToggle(false)
+    } 
+
     return (
     <Shell>
     <LoginBg source={require("../assets/images/signupBG.png")} resizeMode="stretch">
@@ -103,7 +159,9 @@ const Signup = ({navigation}) => {
                 </Title>
             </TitleContainer>
             <TypeArea>
-                <SelectType  placeholder="Type"></SelectType>
+                <SelectType  onPress={() => setTypeModalToggle(true)}><SelectTypeText>{typeResult}</SelectTypeText></SelectType>
+                {/* <DropDown /> */}
+                
             </TypeArea>
             <IdArea>
                 <IdInput placeholder="please input your ID"></IdInput>
@@ -133,6 +191,20 @@ const Signup = ({navigation}) => {
                     <SignupBtnText onPress={() => {navigation.navigate("Login")}}>log in</SignupBtnText>
                 </SignupBtn>
             </SignupArea>
+
+            <Modal
+            isVisible={typeModalToggle}
+            style={{alignItems:"center", justifyContent:"center"}}
+            onBackdropPress = {()=>setTypeModalToggle(false)}
+            >
+                <TypeModalContainer>
+                    <TypeModalShell>
+                        <Type onPress={TypeModalPress}><TypeText>관리자</TypeText></Type>
+                        <Type onPress={() => setTypeResult("강사")}><TypeText>강사</TypeText></Type>
+                        <Type onPress={() => setTypeResult("회원")}><TypeText>회원</TypeText></Type>
+                    </TypeModalShell>
+                </TypeModalContainer>
+            </Modal>
         </PaddingContainer>
     </LoginBg>
     </Shell>

@@ -2,6 +2,7 @@ import React,{useState, useEffect} from "react";
 import styled from "styled-components/native";
 import colors from '../Components/color';
 import {Ionicons} from "@expo/vector-icons"
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const Shell = styled.View`
 flex: 1;
@@ -101,6 +102,14 @@ const SignupBtnText = styled.Text`
 
 const Login = ({navigation}) => {
 
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(null);
+    const [items, setItems] = useState([
+      {label: '관리자', value: 'manager'},
+      {label: '강사', value: 'teacher'},
+      {label: '수강생', value: 'student'}
+    ]);
+
     return (
     <Shell>
         <LoginBg source={require("../assets/images/loginBG.png")} resizeMode="stretch">
@@ -129,6 +138,24 @@ const Login = ({navigation}) => {
                     <SignupBtnText onPress={() => {navigation.navigate("Signup")}}>Signup</SignupBtnText>
                 </SignupBtn>
             </SignupArea>
+            <DropDownPicker
+                placeholder="타입을 고르세요"
+                open={open}
+                value={value}
+                items={items}
+                setOpen={setOpen}
+                setValue={setValue}
+                setItems={setItems}
+                style={{
+                    // width: 200,
+                    height: 40,
+                    borderColor: "red"
+                }}
+                labelStyle={{
+                    // color: "white"
+                }}
+                onChangeValue={(value)=>{console.log(value)}}
+            />
         </PaddingContainer>
         </LoginBg>
     </Shell>

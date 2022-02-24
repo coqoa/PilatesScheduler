@@ -63,12 +63,21 @@ const ModalContents = styled.View`
     border: 1px solid black;
     
 `
-const Line1 = styled.View``
+const Line1 = styled.View`
+    width: 100px;
+    height: 40px;
+    flex-direction: row;
+    margin:5px 15px;
+    align-items: center;
+`
 const Line2 = styled(Line1)``
 const Line3 = styled(Line1)``
 const Line4 = styled(Line1)``
 
-const Line1Text = styled.Text``
+const Line1Text = styled.Text`
+    font-size: 16px;
+    color: ${colors.DARKGRAY};
+`
 const Line2Text = styled(Line1Text)``
 const Line3Text = styled(Line1Text)``
 const Line4Text = styled(Line1Text)``
@@ -93,10 +102,18 @@ const DefaultModal = () => {
                     <ModalTitleText>타이틀</ModalTitleText>
                 </ModalTitle>
                 <ModalContents>
-                    <Line1><Line1Text>Default</Line1Text></Line1>
-                    <Line2><Line2Text>모달내용작성2</Line2Text></Line2>
-                    <Line3><Line3Text>모달내용작성3</Line3Text></Line3>
-                    <Line4><Line4Text>모달내용작성4</Line4Text></Line4>
+                    <Line1>
+                        <Line1Text>LessonModalComponent</Line1Text>
+                    </Line1>
+                    <Line2>
+                        <Line2Text>모달내용작성2</Line2Text>
+                    </Line2>
+                    <Line3>
+                        <Line3Text>모달내용작성3</Line3Text>
+                    </Line3>
+                    <Line4>
+                        <Line4Text>모달내용작성4</Line4Text>
+                    </Line4>
                 </ModalContents>
                 <ModalSubmitBtnShell>
                     <ModalSubmitBtn>
